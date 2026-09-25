@@ -1,24 +1,32 @@
-# floci-oci-train - Lab 100% FAKE OCI Completo
+# floci-oci-train - OCI IaC Training with Floci Local Emulator
 
-Owner: ph@phpereira - PH Pereira | Fingerprint: 60:45:7b:73:45:7f:f5:98:ba:b5:c7:bd:9f:08:89:45
-Status: Apply complete! VITORIA 13:07 - 25/09/2026
+Treinamento completo de Oracle Cloud Infrastructure usando Terraform + Floci-OCI (emulador local na porta 4599).
+100% local, zero custo, pronto pra usar na conta real.
 
-![Vitoria](PRINT-VITORIA-PH-13h07.png)
+## 🚀 O que já aplica 100% no Floci Local (Apply OK)
 
-## O que e?
-Lab Terraform + Floci-OCI simulando Oracle Cloud 100% local - sem custo, sem cartao.
+| Lab | Serviço | Recurso | Status |
+|---|---|---|---|
+| 5-storage/object-storage | Object Storage | app-data-bucket + app-logs-bucket | Apply complete! |
+| 5-storage/queue | Queue | app-tasks-queue | Apply complete! |
+| 5-storage/streaming | Streaming | app-events-stream | Apply complete! |
+| 6-security/vault | KMS Vault | app-vault | Apply complete! |
+| 2-identity | Identity | Compartments | Apply complete! |
 
-## Stack
-- Terraform + Floci-OCI (porta 4599)
-- Docker Functions
-- Policies, Roles, Compartments
+## ✅ O que valida local e aplica na Oracle Real
 
-## Como rodar
-docker run -d -p 4599:4599 floci/floci-oci
-terraform init && terraform apply
+Esses serviços não são implementados no Floci (só validação), mas o MESMO código Terraform aplica na nuvem real:
 
-## Evidencias
-- VITORIA.txt - log do apply
-- PRINT-VITORIA-PH-13h07.png - screenshot 13:07
+- 4-networking/vcn, subnets, security-lists, DRG, Service Gateway, DNS
+- 3-compute/load-balancer
+- 7-serverless/functions (precisa de VCN real)
 
-#OCI #Terraform #Floci #DevOps
+## Como rodar local
+
+Inicia Floci: docker compose up -d
+Export TF_VAR_CLIENT_HOST_OVERRIDES com endpoints http://localhost:4599
+terraform init && terraform apply -auto-approve
+
+## Como usar na conta REAL
+
+unset TF_VAR_CLIENT_HOST_OVERRIDES e use ~/.oci/config real
