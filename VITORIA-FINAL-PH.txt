@@ -1,0 +1,23 @@
+🎯 FLOCI-OCI-TRAIN - PH PEREIRA - STATUS 25/09/2025
+
+✅ 5 APPLY OK FLOCI LOCAL (4599):
+- 5-storage/object-storage
+- 5-storage/queue
+- 5-storage/streaming
+- 6-security/vault
+- 7-serverless (compartments)
+
+✅ 7 VALIDATE PRONTO PRA REAL:
+- 4-networking/vcn-routing
+- 4-networking/vcn-security
+- 4-networking/dns
+- 4-networking/drg-peering
+- 4-networking/load-balancer
+- 4-networking/service-gateway
+- 3-compute/app-instance-ph-pereira (NOVO)
+
+SSH KEY: id_rsa.pub ssh-rsa AAAAB3... ph@floci-oci-train | FP 60:45:7b:73:45:7f:f5:98:ba:b5:c7:bd:9f:08:89:45
+LAB FAKE RAIZ: Groups/Users/Policies PH - terraform plan No changes OK
+
+OWNER: ph@phpereira - PH Pereira
+TAG: Floci-Train-PH
