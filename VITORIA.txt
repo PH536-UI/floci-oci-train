@@ -1,0 +1,6 @@
+✅ [Users - PH] ph.pereira.net | PH Pereira - Network Admin | Enforce MFA - PH
+✅ [Groups - PH] OCI-admin-group-PH | Grupo de Admins do PH Pereira - day-to-day operations | Owner: ph@phpereira - PH Pereira
+✅ [Groups - PH] Network-Admins-PH | Grupo de Rede do PH - gerencia VCN | Owner: ph@phpereira - PH Pereira
+✅ [Groups - PH] Storage-Admins-PH | Grupo de Storage do PH - gerencia buckets | Owner: ph@phpereira - PH Pereira
+✅ [Users - PH] ph.pereira.admin | PH Pereira - OCI Admin (não é Tenancy Admin) | Enforce MFA - PH
+✅ [Tenancy Setup - PH] Fluxo: Tenancy Admin (PH) -> OCI Admin (ph.pereira.admin) -> OCI-admin-group-PH -> Policies-PH -> sandbox-compartment-PH-Pereira | FP: 60:45:7b:73:45:7f:f5:98:ba:b5:c7:bd:9f:08:89:45
