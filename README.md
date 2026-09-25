@@ -30,3 +30,8 @@ terraform init && terraform apply -auto-approve
 ## Como usar na conta REAL
 
 unset TF_VAR_CLIENT_HOST_OVERRIDES e use ~/.oci/config real
+
+## Lab 3-compute criado (21/05)
+- VM.Standard.E4.Flex Oracle Linux 8
+- AD-1, public_ip, ssh ~/.ssh/id_rsa.pub
+- Status: terraform validate OK - pronto pra real (Floci não implementa oci_core_instance)
