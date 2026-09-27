@@ -25,3 +25,14 @@ output "buckets_created" {
 output "vault_status" {
   value = "vault mock running on floci:4599"
 }
+
+output "buckets_created" {
+  value = [
+    oci_objectstorage_bucket.demo.name,
+    oci_objectstorage_bucket.logs.name
+  ]
+}
+
+output "floci_vault_health" {
+  value = "vault/kms running on http://localhost:4599 - version 0.4.1"
+}
