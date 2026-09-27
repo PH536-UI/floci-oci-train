@@ -13,11 +13,11 @@ terraform {
 
 # Provider apontando pro seu Floci local na porta 4599
 provider "oci" {
-  tenancy_ocid         = "ocid1.tenancy.oc1..fake"
-  user_ocid            = "ocid1.user.oc1..fake"
-  fingerprint          = "60:45:7b:73:45:7f:f5:98:ba:b5:c7:bd:9f:08:89:45"
-  private_key_path     = "/tmp/fake.pem"
-  region               = "us-ashburn-1"
+  tenancy_ocid     = "ocid1.tenancy.oc1..fake"
+  user_ocid        = "ocid1.user.oc1..fake"
+  fingerprint      = "60:45:7b:73:45:7f:f5:98:ba:b5:c7:bd:9f:08:89:45"
+  private_key_path = "/tmp/fake.pem"
+  region           = "us-ashburn-1"
 }
 
 # 1. VCN 10.0.0.0/16

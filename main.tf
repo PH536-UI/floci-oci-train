@@ -13,10 +13,10 @@ resource "null_resource" "demo_groups" {
     "Network-Admins-PH"  = "Grupo de Rede do PH - gerencia VCN"
     "Storage-Admins-PH"  = "Grupo de Storage do PH - gerencia buckets"
   }
-  triggers = { 
-    group_name = each.key
+  triggers = {
+    group_name  = each.key
     description = each.value
-    owner = local.owner
+    owner       = local.owner
   }
   provisioner "local-exec" {
     command = "echo '✅ [Groups - PH] ${self.triggers.group_name} | ${self.triggers.description} | Owner: ${self.triggers.owner}' | tee -a VITORIA.txt"
@@ -30,8 +30,8 @@ resource "null_resource" "demo_users" {
     "ph.pereira.net"   = "PH Pereira - Network Admin"
   }
   triggers = {
-    user_name = each.key
-    desc = each.value
+    user_name     = each.key
+    desc          = each.value
     best_practice = "Enforce MFA - PH"
   }
   provisioner "local-exec" {
@@ -50,7 +50,7 @@ resource "local_file" "admin_role_PH" {
       "Best practice: Enforce MFA - PH"
     ]
     Tenancy_Admin = "ph@phpereira - NÃO USAR no dia a dia"
-    OCI_Admin = "ph.pereira.admin - Usar no dia a dia - Owner PH"
+    OCI_Admin     = "ph.pereira.admin - Usar no dia a dia - Owner PH"
   })
 }
 
@@ -58,7 +58,7 @@ resource "local_file" "admin_role_PH" {
 resource "local_file" "policies_PH" {
   filename = "./policies-PH.json"
   content = jsonencode({
-    owner = local.owner
+    owner       = local.owner
     compartment = "sandbox-compartment-PH-Pereira"
     policies = [
       "Allow group OCI-admin-group-PH to manage all-resources in compartment sandbox-compartment-PH-Pereira -- Policy do PH",
@@ -71,9 +71,9 @@ resource "local_file" "policies_PH" {
 # DEMO 5: Tenancy Setup - Fluxo da sua imagem com seu nome
 resource "null_resource" "tenancy_setup_PH" {
   triggers = {
-    flow = "Tenancy Admin (PH) -> OCI Admin (ph.pereira.admin) -> OCI-admin-group-PH -> Policies-PH -> sandbox-compartment-PH-Pereira"
+    flow        = "Tenancy Admin (PH) -> OCI Admin (ph.pereira.admin) -> OCI-admin-group-PH -> Policies-PH -> sandbox-compartment-PH-Pereira"
     fingerprint = "60:45:7b:73:45:7f:f5:98:ba:b5:c7:bd:9f:08:89:45"
-    owner = local.owner
+    owner       = local.owner
   }
   provisioner "local-exec" {
     command = "echo '✅ [Tenancy Setup - PH] Fluxo: ${self.triggers.flow} | FP: ${self.triggers.fingerprint}' | tee -a VITORIA.txt"
