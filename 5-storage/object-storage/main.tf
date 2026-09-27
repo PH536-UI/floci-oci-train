@@ -18,13 +18,6 @@ resource "oci_objectstorage_bucket" "logs" {
   name           = "app-logs-bucket"
 }
 
-output "buckets_created" {
-  value = [for b in oci_objectstorage_bucket.buckets : b.name]
-}
-
-output "vault_status" {
-  value = "vault mock running on floci:4599"
-}
 
 output "buckets_created" {
   value = [
