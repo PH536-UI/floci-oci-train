@@ -1,7 +1,6 @@
+data/
+*.pem
 .terraform/
-.terraform.lock.hcl
-*.tfstate
-*.tfstate.backup
-__pycache__/
-*.pyc
-oci
+*.tfstate*
+.oci/
+teste.txt
