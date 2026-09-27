@@ -1,0 +1,16 @@
+{
+  "ocid1.tenancy.oc1..flocilocaltenancy0000000000000000000000000000000000000000/app-data-bucket" : {
+    "namespace" : "floci-local",
+    "name" : "app-data-bucket",
+    "compartmentId" : "ocid1.tenancy.oc1..flocilocaltenancy0000000000000000000000000000000000000000",
+    "metadata" : { },
+    "createdBy" : "ocid1.tenancy.oc1..flocilocaltenancy0000000000000000000000000000000000000000",
+    "timeCreated" : "2026-09-27T21:07:55.118008094Z",
+    "etag" : "5b3400e25bce4aa7bb63449af0d035a3",
+    "publicAccessType" : "NoPublicAccess",
+    "storageTier" : "Standard",
+    "objectEventsEnabled" : false,
+    "versioning" : "Disabled",
+    "id" : "ocid1.bucket.oc1.iad.sotxcz4cq7vhf62rix6ex7tpvi5wbarx364augofpwzyczgzgy2x274i3n3q"
+  }
+}
