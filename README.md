@@ -21,3 +21,7 @@ btcd 5-storage/object-storage && terraform apply
 5. Usar backend S3 p/ terraform state
 
 Autor: PH Pereira - 1Z4-1085 - @PH536-UI
+
+---
+## English Version
+See [README_EN.md](./README_EN.md) for full English documentation - Local vs Real OCI migration guide.
