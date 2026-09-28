@@ -11,17 +11,13 @@ variable "tenancy_ocid" {
   default = "ocid1.tenancy.oc1..flocilocaltenancy0000000000000000000000000000000000000000"
 }
 
-# 1. Tag Namespace - é o que organiza custos por projeto/ambiente
 resource "oci_identity_tag_namespace" "cost_tracking" {
   compartment_id = var.tenancy_ocid
   name           = "floci-cost-tracking"
   description    = "Tag namespace for cost governance - Training"
-
-  # Free tier tags desabilitados pra mock
-  is_retired = false
+  is_retired     = false
 }
 
-# 2. Tag Definitions - as tags que você usaria pra billing
 resource "oci_identity_tag" "environment" {
   tag_namespace_id = oci_identity_tag_namespace.cost_tracking.id
   name             = "Environment"
@@ -43,13 +39,13 @@ resource "oci_identity_tag" "project" {
   is_retired       = false
 
   validator {
-    validator_type = "DEFAULT"
+    validator_type = "ENUM"
+    values         = ["floci-oci-train", "oci-training", "governance-lab"]
   }
 
   is_cost_tracking = true
 }
 
-# 3. Compartment com tags - boa prática de Governance
 resource "oci_identity_compartment" "governance_compartment" {
   compartment_id = var.tenancy_ocid
   name           = "floci-governance-comp"
