@@ -1,29 +1,23 @@
-# floci-oci-train - OCI IaC Training com Floci Local - 6/6 100% COMPLETE ✅
+# floci-oci-train - OCI IaC Training - 6/6 100% COMPLETE
 
-## 🏆 Status Final 27/09/2026 21:45 - 100% APPLY OK
-- **floci-oci:0.4.1** - Up (healthy) - vault/kms/objectstorage/identity/oke running
-- **Modules 6/6 PASSED:**
-    - IAM 80% ✅
-    - Networking 100% ✅
-    - Compute 100% ✅
-    - Storage 100% ✅ (app-data-bucket, app-logs-bucket encrypted)
-    - Security 100% ✅ (vault/kms running + encryption)
-    - Governance 100% ✅ (compartments + cost tags)
-- **Terraform:** fmt OK, validate OK, 6/6 Apply OK, 0 errors
-- **MyLearn:** All Skill Checks 80%+ PASSED - Voucher 1Z0-1085-26 liberado
+> Projeto 100% Apply OK localmente com Floci-OCI sem custo.
 
-## 📦 O que foi implementado
-- **Security:** Vault/KMS mock, buckets encrypted at rest
-- **Governance:** floci-governance-comp + floci-cost-tracking-comp + Tags (Environment, Project, CostCenter)
+## Status Final 6/6
 
-## 🚀 Como rodar
-export TF_VAR_CLIENT_HOST_OVERRIDES="oci_identity.IdentityClient=http://localhost:4599;oci_object_storage.ObjectStorageClient=http://localhost:4599"
-cd 5-storage/object-storage && terraform output
-cd ../../8-governance/tagging && terraform output
+- Floci 0 4.1 healthy - vault/kms/identity/objectstorage running
+- Storage: app-data-bucket, app-logs-bucket ENCRYPTED
+- Governance: floci-governance-comp + floci-cost-tracking-comp + Tags (Env, Project, CostCenter)
 
-## 🔗 Links
-- GitHub: PH536-UI/floci-oci-train
-- Floci: floci/floci-oci:latest - community edition
-- Prova alvo: Oracle Cloud Infrastructure 2026 Foundations Associate (1Z0-1085-26)
+## Local
+docker run -d --pname floci-oci -h 4599:4599 floci/floci-oci
+JTentativa: export T_VAR_CLIENT_HOST_OVERRIDES="oci_identity.IdentityClient=http://localhost:4599;oci_object_storage.ObjectStorageClient=http://localhost:4599"
+btcd 5-storage/object-storage && terraform apply
 
-#oci #terraform #iac #floci #oracle-cloud
+## OCI REAL - 5 Mudancas
+1. Unset TF_VAR_CLIENT_HOST_OVERRIDES - use ~~/oci/config
+2. Trocar OCIDs mock por reais + data oci_objectstorage_namespace
+3. Add oci_kms_vault + oci_kms_key p/ encryption real
+4. Add oci_identity_tag_namespace (Floci da 404)
+5. Usar backend S3 p/ terraform state
+
+Autor: PH Pereira - 1Z4-1085 - @PH536-UI
